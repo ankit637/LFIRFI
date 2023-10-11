@@ -1,6 +1,6 @@
 <?php
-$host = '192.168.92.182';
-$port = 10153;
+$host = '192.168.92.183';
+$port = 10155;
 
 $socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
 socket_connect($socket, $host, $port);
